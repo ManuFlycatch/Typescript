@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 
+
 const router = Router();
 
 router.get('/login', (req: Request, res: Response) => {
@@ -18,8 +19,13 @@ router.get('/login', (req: Request, res: Response) => {
 })
 
 router.post('/login', (req: Request, res: Response) => {
-    const { email, password } = req.body
-    res.send(email + password)
-})
+    const { email, password } = req.body;
 
+  if (email && password && email === 'hi@hi.com' && password === 'password') {
+    req.session = { loggedIn: true };
+    res.redirect('/');
+  } else {
+    res.send('Invalid email or password');
+  } 
+})
 export { router }
