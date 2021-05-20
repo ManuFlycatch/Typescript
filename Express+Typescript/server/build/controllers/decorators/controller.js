@@ -8,10 +8,10 @@ function controller(routePrefix) {
         var router = AppRouter_1.AppRouter.getInstance();
         for (var key in target.prototype) {
             var routeHandler = target.prototype[key];
-            var path = Reflect.getMetadata('path', target.prototype, key);
-            var method = Reflect.getMetadata('method', target.prototype, key);
+            var path = Reflect.getMetadata('Metadatakeys.path', target.prototype, key);
+            var method = Reflect.getMetadata('Metadatakeys.method', target.prototype, key);
             if (path) {
-                router.get("" + routePrefix + path, routeHandler);
+                router[method]("" + routePrefix + path, routeHandler);
             }
         }
     };

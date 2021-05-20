@@ -6,8 +6,8 @@ var Methods_1 = require("./Methods");
 function routeBinder(method) {
     return function (path) {
         return function (target, key, desc) {
-            Reflect.defineMetadata('path', path, target, key);
-            Reflect.defineMetadata('method', method, target, key);
+            Reflect.defineMetadata('Metadatakeys.path', path, target, key);
+            Reflect.defineMetadata('Metadatakeys.method', method, target, key);
         };
     };
 }
